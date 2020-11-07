@@ -3,7 +3,7 @@
   margin: 2rem auto 0;
 }
 
-.my-menu-toggle {
+.mymuse-menu-toggle {
   background-color: whitesmoke;
   color: #1a1a2e;
   font-weight: bold;
@@ -12,34 +12,34 @@
   border: none;
 }
 
-.my-menu-toggle:hover {
+.mymuse-menu-toggle:hover {
   background-color: whitesmoke;
   color: #1a1a2e;
   border: none;
 }
 
-.my-menu-toggle:focus {
+.mymuse-menu-toggle:focus {
   background-color: whitesmoke !important;
   color:#1a1a2e !important;
   border: none;
 }
 
-.my-menu-toggle:active {
+.mymuse-menu-toggle:active {
   background-color: whitesmoke !important;
   color:#1a1a2e !important;
   border: none;
 }
 
-.my-menu {
+.mymuse-menu {
   width: 20rem;
 }
 
-.my-dropdown-item {
+.mymuse-dropdown-item {
   font-size: 1.75rem;
   padding: 2rem;
 }
 
-.my-modal {
+.mymuse-modal {
   min-width: 40%;
   font-size: 1.5rem;
 }
@@ -58,7 +58,7 @@ form input {
   font-size: 1.5rem !important;
 }
 
-.my-modal-button {
+.mymuse-modal-button {
   font-size: 1.5rem;
   min-width: 7rem;
   margin-left: 2rem;
