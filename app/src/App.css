@@ -1,0 +1,40 @@
+.app {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.my-menu-toggle {
+  background-color: whitesmoke;
+  color: #1a1a2e;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 2.5rem;
+  border: none;
+}
+
+.my-menu-toggle:hover {
+  background-color: whitesmoke;
+  color: #1a1a2e;
+  border: none;
+}
+
+.my-menu-toggle:focus {
+  background-color: whitesmoke !important;
+  color:#1a1a2e !important;
+  border: none;
+}
+
+.my-menu-toggle:active {
+  background-color: whitesmoke !important;
+  color:#1a1a2e !important;
+  border: none;
+}
+
+.my-menu {
+  width: 20rem;
+}
+
+.my-dropdown-item {
+  font-size: 1.75rem;
+  padding: 2rem;
+}
