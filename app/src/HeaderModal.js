@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import {
   Modal,
   ModalHeader,
@@ -9,44 +9,48 @@ import {
   Form,
   Label,
 } from "reactstrap";
+import { StateContext } from "./contexts/StateContext";
 
 function HeaderModal() {
-  const [modal, setModal] = useState(true);
+  const {
+    challengeGoal,
+    challengeMilestone,
+    modal,
+    setModal,
+    setChallengeGoal,
+    setChallengeMilestone,
+    setMilestonesRemaining,
+  } = useContext(StateContext);
+  // const [modal, setModal] = useState(true);
   const dismiss = () => setModal(false);
 
-  const [challengeGoal, setChallengeGoal] = useState(1667);
+  // const [challengeGoal, setChallengeGoal] = useState(1667);
   const updateChallengeGoal = (e) => setChallengeGoal(parseInt(e.target.value));
-  const [challengeMilestone, setChallengeMilestone] = useState(250);
-  const updateChallengeMilestone = (e) => setChallengeMilestone(parseInt(e.target.value));
+  // const [challengeMilestone, setChallengeMilestone] = useState(250);
+  const updateChallengeMilestone = (e) =>
+    setChallengeMilestone(parseInt(e.target.value));
 
-  const [milestonesRemaining, setMilestonesRemaining] = useState();
+  // const [milestonesRemaining, setMilestonesRemaining] = useState();
 
   const calculateMilestones = () => {
     const mainMilestones = Math.floor(challengeGoal / challengeMilestone);
     const finalMilestone = challengeGoal % challengeMilestone;
 
-    const milestonesToClear = []
-    for (let i = 0; i < mainMilestones; i++){
+    const milestonesToClear = [];
+    for (let i = 0; i < mainMilestones; i++) {
       milestonesToClear.push(challengeMilestone);
     }
     if (finalMilestone > 0) {
       milestonesToClear.push(finalMilestone);
     }
-    console.log(milestonesToClear);
     setMilestonesRemaining(milestonesToClear);
-  }
+  };
 
   const startWritingChallenge = (e) => {
     e.preventDefault();
-    console.log(challengeGoal);
-    console.log(typeof challengeGoal);
-
-    console.log(challengeMilestone);
-    console.log(typeof challengeMilestone);
     calculateMilestones();
-    console.log(milestonesRemaining);
-
-  }
+    dismiss();
+  };
   return (
     <div className="header-modal">
       <Modal
@@ -64,11 +68,20 @@ function HeaderModal() {
           all the milestones!
           <Form id="start-challenge" onSubmit={startWritingChallenge}>
             <Label>Wordcount goal: </Label>
-            <Input type="number" value={challengeGoal} onChange={updateChallengeGoal} />
+            <Input
+              type="number"
+              value={challengeGoal}
+              onChange={updateChallengeGoal}
+            />
             <Label>Milestones: </Label>
-            <Input type="number" value={challengeMilestone} onChange={updateChallengeMilestone}/>
+            <Input
+              type="number"
+              value={challengeMilestone}
+              onChange={updateChallengeMilestone}
+            />
           </Form>
         </ModalBody>
+        {console.log("does this ever load?")}
         <ModalFooter>
           <Button
             className="mymuse-modal-button"

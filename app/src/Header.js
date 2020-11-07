@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import {
   Dropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
+import { StateContext } from "./contexts/StateContext";
 import HeaderModal from "./HeaderModal";
 import MilestonesContainer from "./MilestonesContainer";
 
 function Header() {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const { dropdownOpen, setDropdownOpen } = useContext(StateContext);
+//   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
   return (
