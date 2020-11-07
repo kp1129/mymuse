@@ -5,7 +5,7 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
-import ChallengeModal from "./ChallengeModal";
+import HeaderModal from "./HeaderModal";
 import MilestonesContainer from "./MilestonesContainer";
 
 function Header() {
@@ -24,7 +24,7 @@ function Header() {
         </DropdownMenu>
       </Dropdown>
 
-      <ChallengeModal />
+      <HeaderModal />
 
       <MilestonesContainer />
     </div>
