@@ -81,7 +81,6 @@ function HeaderModal() {
             />
           </Form>
         </ModalBody>
-        {console.log("does this ever load?")}
         <ModalFooter>
           <Button
             className="mymuse-modal-button"

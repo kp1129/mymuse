@@ -11,7 +11,6 @@ import MilestonesContainer from "./MilestonesContainer";
 
 function Header() {
   const { dropdownOpen, setDropdownOpen } = useContext(StateContext);
-//   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
   return (
