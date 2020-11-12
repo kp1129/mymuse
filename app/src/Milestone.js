@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Milestone({ item }) {
+function Milestone({ item, show }) {
     return (
-        <div className="milestone">
+        <div className={show ? "milestone" : "milestone hidden_milestone"}>
             {item}
         </div>
     )

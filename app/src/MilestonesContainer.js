@@ -8,7 +8,10 @@ function MilestonesContainer() {
 
     return (
         <div className="milestones-container">
-            {milestonesRemaining?.map(item => <Milestone item={item}/>)}
+            {milestonesRemaining?.map((item, ix) => {
+                if (ix < 7) return <Milestone item={item} show={true} />
+                return <Milestone item={item} show={false} />
+                })}
         </div>
     )
 }

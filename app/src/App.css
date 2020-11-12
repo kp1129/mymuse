@@ -100,3 +100,7 @@ form input {
   padding: 0.5rem 2rem;
   border-radius: 3px;
 }
+
+.hidden_milestone {
+  display: none;
+}
