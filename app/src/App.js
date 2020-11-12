@@ -11,6 +11,7 @@ function App() {
   const [milestonesRemaining, setMilestonesRemaining] = useState();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [text, setText] = useState("");
+  const [wordsWritten, setWordsWritten] = useState(0);
   return (
     <StateContext.Provider
       value={{
@@ -25,7 +26,9 @@ function App() {
         dropdownOpen,
         setDropdownOpen,
         text,
-        setText
+        setText,
+        wordsWritten,
+        setWordsWritten
       }}
     >
       <div className="app">

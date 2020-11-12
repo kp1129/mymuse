@@ -2,10 +2,19 @@ import React, { useContext } from "react";
 import { StateContext } from "./contexts/StateContext";
 
 function Editor() {
-  const { text, setText } = useContext(StateContext);
+  const { setText, setWordsWritten } = useContext(StateContext);
 
   const handleInputChange = (e) => {
-    setText(e.target.innerText);
+    const words = e.target.innerText;
+    // save written words to state
+    setText(words);
+    
+    // count how many words were written
+    // only letters and numbers, separated by space, count as words
+
+    // strip punctuation and symbols, filter out empty strings
+    const processedWords = words.replace(/[^\w\s]|_/g, "").split(/[\s\n]/).filter(elem => elem);
+    setWordsWritten(processedWords.length)
   };
 
   const preventTab = (e) => {
