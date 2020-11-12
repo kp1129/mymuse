@@ -21,16 +21,15 @@ function HeaderModal() {
     setChallengeMilestone,
     setMilestonesRemaining,
   } = useContext(StateContext);
-  // const [modal, setModal] = useState(true);
+
   const dismiss = () => setModal(false);
 
-  // const [challengeGoal, setChallengeGoal] = useState(1667);
+
   const updateChallengeGoal = (e) => setChallengeGoal(parseInt(e.target.value));
-  // const [challengeMilestone, setChallengeMilestone] = useState(250);
+
   const updateChallengeMilestone = (e) =>
     setChallengeMilestone(parseInt(e.target.value));
 
-  // const [milestonesRemaining, setMilestonesRemaining] = useState();
 
   const calculateMilestones = () => {
     const mainMilestones = Math.floor(challengeGoal / challengeMilestone);
@@ -43,6 +42,7 @@ function HeaderModal() {
     if (finalMilestone > 0) {
       milestonesToClear.push(finalMilestone);
     }
+    console.log(milestonesToClear)
     setMilestonesRemaining(milestonesToClear);
   };
 
