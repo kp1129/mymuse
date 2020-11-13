@@ -42,7 +42,6 @@ function HeaderModal() {
     if (finalMilestone > 0) {
       milestonesToClear.push(finalMilestone);
     }
-    console.log(milestonesToClear)
     setMilestonesRemaining(milestonesToClear);
   };
 

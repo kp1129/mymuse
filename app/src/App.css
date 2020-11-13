@@ -69,6 +69,7 @@ form input {
 .header {
   height: 10vh;
   border: 1px solid red;
+  background-color: white;
 }
 
 .editor {
@@ -103,4 +104,19 @@ form input {
 
 .hidden_milestone {
   display: none;
+}
+
+.wordcounter {
+  color: gray;
+  font-size: 1.25rem;
+  border: 1px solid green;
+  width: 10rem;
+  margin: 0 0 0 auto;
+  text-align: center;
+}
+
+.mymuse-nav {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
 }
