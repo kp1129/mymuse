@@ -1,9 +1,5 @@
 import React, { useContext } from "react";
 import {
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   NavbarToggler,
   Navbar,
   NavbarBrand,
@@ -44,25 +40,12 @@ function Header() {
         </Collapse>
         
       </Navbar>
-       
 
+     <HeaderModal />
 
-      {/* <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-        <DropdownToggle className="mymuse-menu-toggle" caret>
-          Menu
-        </DropdownToggle>
-        <NavbarToggler className="mr-2" />
-        <DropdownMenu className="mymuse-menu">
-          <DropdownItem className="mymuse-dropdown-item">Dark mode</DropdownItem>
-          <DropdownItem className="mymuse-dropdown-item">Save locally</DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
+     <MilestonesContainer />
 
-      <HeaderModal />
-
-      <MilestonesContainer />
-
-      <WordCounter /> */}
+     <WordCounter /> 
     </div>
   );
 }
