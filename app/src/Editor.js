@@ -14,7 +14,7 @@ function Editor() {
 
     // strip punctuation and symbols, filter out empty strings
     const processedWords = words.replace(/[^\w\s]|_/g, "").split(/[\s\n]/).filter(elem => elem);
-    setWordsWritten(processedWords.length)
+    setWordsWritten(processedWords.length);
   };
 
   const preventTab = (e) => {

@@ -20,6 +20,7 @@ function HeaderModal() {
     setChallengeGoal,
     setChallengeMilestone,
     setMilestonesRemaining,
+    setNextMilestone
   } = useContext(StateContext);
 
   const dismiss = () => setModal(false);
@@ -43,6 +44,7 @@ function HeaderModal() {
       milestonesToClear.push(finalMilestone);
     }
     setMilestonesRemaining(milestonesToClear);
+    setNextMilestone(challengeMilestone);
   };
 
   const startWritingChallenge = (e) => {
