@@ -22,7 +22,10 @@ function Header() {
       <Navbar color="faded" light>
        
         <NavbarToggler onClick={toggle} className="mr-2" />
-        <NavbarBrand >my muse</NavbarBrand>
+        
+        <WordCounter /> 
+        <NavbarBrand className="mymuse-navbarBrand">my muse</NavbarBrand>
+      
 
         <Collapse isOpen={dropdownOpen} navbar >
           <Nav className="mymuse-nav">
@@ -45,7 +48,7 @@ function Header() {
 
      <MilestonesContainer />
 
-     <WordCounter /> 
+     
     </div>
   );
 }
