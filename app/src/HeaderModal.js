@@ -20,17 +20,15 @@ function HeaderModal() {
     setChallengeGoal,
     setChallengeMilestone,
     setMilestonesRemaining,
-    setNextMilestone
+    setNextMilestone,
   } = useContext(StateContext);
 
   const dismiss = () => setModal(false);
-
 
   const updateChallengeGoal = (e) => setChallengeGoal(parseInt(e.target.value));
 
   const updateChallengeMilestone = (e) =>
     setChallengeMilestone(parseInt(e.target.value));
-
 
   const calculateMilestones = () => {
     const mainMilestones = Math.floor(challengeGoal / challengeMilestone);
@@ -61,12 +59,19 @@ function HeaderModal() {
         backdropTransition={{ timeout: 300 }}
       >
         <ModalHeader>
-          <h1>My Muse</h1>
+          <h5>Welcome, Writer! Your Muse awaits!</h5>
         </ModalHeader>
         <ModalBody>
           How it works: set your wordcount goal, set your milestones (every x
-          number of words), and start writing. Don't stop until you've cleared
-          all the milestones!
+          number of words), and start writing.
+          <br />
+          <br />
+          For example, write 1667 words in one session, with a milestone after
+          every 250 words.
+          <br />
+          <br /> Don't stop until you've cleared all the milestones!
+          <br />
+          <br />
           <Form id="start-challenge" onSubmit={startWritingChallenge}>
             <Label>Wordcount goal: </Label>
             <Input

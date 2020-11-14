@@ -4,7 +4,7 @@ import Editor from "./Editor";
 import { StateContext } from "./contexts/StateContext";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
   const [modal, setModal] = useState(true);
   const [challengeGoal, setChallengeGoal] = useState(1667);
   const [challengeMilestone, setChallengeMilestone] = useState(250);

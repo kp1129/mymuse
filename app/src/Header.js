@@ -29,9 +29,6 @@ function Header() {
               <NavItem >
       <NavLink onClick={darkModeToggle}>Light Mode</NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink>Save Locally</NavLink>
-              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
@@ -45,14 +42,10 @@ function Header() {
               <NavItem>
                 <NavLink onClick={darkModeToggle}>Dark Mode</NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink>Save Locally</NavLink>
-              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
       )}
-
       <HeaderModal />
       <MilestonesContainer />
     </div>
