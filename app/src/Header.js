@@ -6,7 +6,7 @@ import {
   Collapse,
   Nav,
   NavItem,
-  NavLink
+  NavLink,
 } from "reactstrap";
 import { StateContext } from "./contexts/StateContext";
 import HeaderModal from "./HeaderModal";
@@ -14,41 +14,50 @@ import MilestonesContainer from "./MilestonesContainer";
 import WordCounter from "./WordCounter";
 
 function Header() {
-  const { dropdownOpen, setDropdownOpen } = useContext(StateContext);
+  const { dropdownOpen, setDropdownOpen, darkMode, setDarkMode } = useContext(StateContext);
   const toggle = () => setDropdownOpen((prevState) => !prevState);
+  const darkModeToggle = (e) => {
+    // e.preventDefault()
 
+    setDarkMode((prevState) => !prevState)};
   return (
-    <div className="header">
-      <Navbar className="mymuse-navbar" light>
-       
-        <NavbarToggler onClick={toggle} />
-        
-        <WordCounter /> 
-        <NavbarBrand className="mymuse-navbarBrand">MyMuse</NavbarBrand>
-      
+    <div className={darkMode ? "header-dark" : "header-light"}>
+      {darkMode ? (
+        <Navbar className="mymuse-navbar-dark" dark>
+          <NavbarToggler onClick={toggle} />
+          <WordCounter />
+          <NavbarBrand className="mymuse-navbarBrand">MyMuse</NavbarBrand>
+          <Collapse isOpen={dropdownOpen} navbar>
+            <Nav className="mymuse-nav">
+              <NavItem >
+      <NavLink onClick={darkModeToggle}>Light Mode</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink>Save Locally</NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
+      ) : (
+        <Navbar className="mymuse-navbar-light" light>
+          <NavbarToggler onClick={toggle} />
+          <WordCounter />
+          <NavbarBrand className="mymuse-navbarBrand">MyMuse</NavbarBrand>
+          <Collapse isOpen={dropdownOpen} navbar>
+            <Nav className="mymuse-nav">
+              <NavItem>
+                <NavLink onClick={darkModeToggle}>Dark Mode</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink>Save Locally</NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
+      )}
 
-        <Collapse isOpen={dropdownOpen} navbar >
-          <Nav className="mymuse-nav">
-            <NavItem>
-              <NavLink>
-                Dark Mode
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink>
-                Save Locally
-              </NavLink>
-            </NavItem>
-          </Nav>
-        </Collapse>
-        
-      </Navbar>
-
-     <HeaderModal />
-
-     <MilestonesContainer />
-
-     
+      <HeaderModal />
+      <MilestonesContainer />
     </div>
   );
 }

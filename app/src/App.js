@@ -1,10 +1,10 @@
 import React, { useState, useRef } from "react";
 import Header from "./Header";
-import Editor from './Editor';
+import Editor from "./Editor";
 import { StateContext } from "./contexts/StateContext";
 
-
 function App() {
+  const [darkMode, setDarkMode] = useState(true);
   const [modal, setModal] = useState(true);
   const [challengeGoal, setChallengeGoal] = useState(1667);
   const [challengeMilestone, setChallengeMilestone] = useState(250);
@@ -12,7 +12,7 @@ function App() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [text, setText] = useState("");
   const [wordsWritten, setWordsWritten] = useState(0);
-  const [nextMilestone, setNextMilestone] = useState()
+  const [nextMilestone, setNextMilestone] = useState();
 
   const milestonesRemainingRef = useRef(milestonesRemaining);
   milestonesRemainingRef.current = milestonesRemaining;
@@ -20,6 +20,8 @@ function App() {
   return (
     <StateContext.Provider
       value={{
+        darkMode,
+        setDarkMode,
         modal,
         setModal,
         challengeGoal,
@@ -36,10 +38,10 @@ function App() {
         setWordsWritten,
         nextMilestone,
         setNextMilestone,
-        milestonesRemainingRef
+        milestonesRemainingRef,
       }}
     >
-      <div className="app">
+      <div className={darkMode ? "app-dark" : "app-light"}>
         <Header />
         <Editor />
       </div>
@@ -48,9 +50,3 @@ function App() {
 }
 
 export default App;
-
-// colors
-// purple #1a1a2e
-// yellow #fddb3a
-// red #e94560
-// navy blue #16213e or #0f3460

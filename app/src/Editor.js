@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { StateContext } from "./contexts/StateContext";
 
 function Editor() {
-  const { setText, setWordsWritten } = useContext(StateContext);
+  const { setText, setWordsWritten, darkMode } = useContext(StateContext);
 
   const handleInputChange = (e) => {
     const words = e.target.innerText;
@@ -24,7 +24,7 @@ function Editor() {
   }
   return (
     <div
-      className="editor"
+      className={darkMode ? "editor-dark" : "editor-light"}
       contentEditable="true"
       onInput={handleInputChange}
       onKeyDown={preventTab}
