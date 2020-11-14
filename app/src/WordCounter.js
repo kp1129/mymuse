@@ -5,7 +5,7 @@ function WordCounter() {
     const { wordsWritten, challengeMilestone, nextMilestone, setNextMilestone, milestonesRemainingRef, setMilestonesRemaining } = useContext(StateContext);
 
     useEffect(() => {
-        if (wordsWritten === nextMilestone) {
+        if (wordsWritten >= nextMilestone) {
             // remove next milestone
             const newMilestonesRemaining = [...milestonesRemainingRef.current];
             newMilestonesRemaining.shift();

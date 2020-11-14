@@ -19,12 +19,12 @@ function Header() {
 
   return (
     <div className="header">
-      <Navbar color="faded" light>
+      <Navbar className="mymuse-navbar" light>
        
-        <NavbarToggler onClick={toggle} className="mr-2" />
+        <NavbarToggler onClick={toggle} />
         
         <WordCounter /> 
-        <NavbarBrand className="mymuse-navbarBrand">my muse</NavbarBrand>
+        <NavbarBrand className="mymuse-navbarBrand">MyMuse</NavbarBrand>
       
 
         <Collapse isOpen={dropdownOpen} navbar >

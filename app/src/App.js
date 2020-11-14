@@ -6,8 +6,8 @@ import { StateContext } from "./contexts/StateContext";
 
 function App() {
   const [modal, setModal] = useState(true);
-  const [challengeGoal, setChallengeGoal] = useState(10);
-  const [challengeMilestone, setChallengeMilestone] = useState(3);
+  const [challengeGoal, setChallengeGoal] = useState(1667);
+  const [challengeMilestone, setChallengeMilestone] = useState(250);
   const [milestonesRemaining, setMilestonesRemaining] = useState([]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [text, setText] = useState("");

@@ -7,16 +7,11 @@ function MilestonesContainer() {
 
   return (
     <div className="milestones-container">
-      {milestonesRemaining.length > 7
-        ? milestonesRemaining
-            .slice(0, 7)
-            .map((item) => <Milestone item={item} show={true} />)
-        : milestonesRemaining.map((item) => (
-            <Milestone item={item} show={true} />
-          ))}
+      {milestonesRemaining.length > 10
+        ? milestonesRemaining.slice(0, 7).map((item) => <Milestone />)
+        : milestonesRemaining.map((item) => <Milestone />)}
     </div>
   );
 }
 
 export default MilestonesContainer;
-

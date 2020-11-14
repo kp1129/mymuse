@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
 .app {
   width: 100%;
   min-height: 100vh;
@@ -31,21 +33,28 @@ form input {
 }
 
 .header {
-  height: 10vh;
-  border: 1px solid red;
-  background-color: white;
+  position: fixed;
+  width: 65%;
+  margin: 0 17.5%;
+  background-color: white; 
+}
+
+.mymuse-navbar {
+  background-color: whitesmoke;
 }
 
 .mymuse-navbarBrand {
-  margin-left: 1rem;
+  font-size: 2.5rem;
+  margin-left: 2rem;
+  font-family: 'Dancing Script', cursive;
 }
 
 .editor {
   min-height: 90vh;
   min-width: 600px;
   width: 65%;
-  padding: 10rem 7rem 5rem;
-  font-size: 1.75rem;
+  padding: 12rem 10rem 5rem;
+  font-size: 1.5rem;
   line-height: 175%;
   margin: 0 auto;
   /* removes the black border on focus */
@@ -55,36 +64,34 @@ form input {
 }
 
 .milestones-container {
-  border: 1px solid purple;
-  display: flex;
+  margin: 1.25rem 0;
+  display: flex;  
   flex-direction: row-reverse;
-  justify-content: flex-start;
+  justify-content: space-around;
 }
 
 .milestone {
-  border: 1px solid black;
-  min-width: 6rem;
-  margin-left: 1rem;
-  font-size: 1.25rem;
-  padding: 0.5rem 2rem;
-  border-radius: 3px;
-}
-
-.hidden_milestone {
-  display: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: #0ff;
+  box-shadow: inset 0 0 1rem #fff, 0 0 0.5rem 0.25rem #0ff;
+  border-radius: 50%;
 }
 
 .wordcounter {
   color: gray;
   font-size: 1.25rem;
   border: 1px solid rgba(155, 152, 152, 0.767);
-  width: 10rem;
+  min-width: 3rem;
+  padding: 0.25rem 1rem;
   margin: 0 0 0 auto;
   text-align: center;
+  border-radius: 0.5rem;
 }
 
 .mymuse-nav {
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
+  font-size: 1.5rem;
 }

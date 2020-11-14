@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
-function Milestone({ item, show }) {
-    return (
-        <div className={show ? "milestone" : "milestone hidden_milestone"}>
-            {item}
-        </div>
-    )
+function Milestone() {
+  return <div className="milestone"></div>;
 }
 
-export default Milestone
+export default Milestone;
