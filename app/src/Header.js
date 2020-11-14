@@ -16,10 +16,7 @@ import WordCounter from "./WordCounter";
 function Header() {
   const { dropdownOpen, setDropdownOpen, darkMode, setDarkMode } = useContext(StateContext);
   const toggle = () => setDropdownOpen((prevState) => !prevState);
-  const darkModeToggle = (e) => {
-    // e.preventDefault()
-
-    setDarkMode((prevState) => !prevState)};
+  const darkModeToggle = () => setDarkMode((prevState) => !prevState);
   return (
     <div className={darkMode ? "header-dark" : "header-light"}>
       {darkMode ? (
