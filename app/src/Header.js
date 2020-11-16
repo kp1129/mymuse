@@ -21,49 +21,41 @@ function Header() {
   const darkModeToggle = () => setDarkMode((prevState) => !prevState);
   return (
     <div className={darkMode ? "header-dark" : "header-light"}>
-      {darkMode ? (
-        <Navbar className="mymuse-navbar-dark" dark>
-          <NavbarToggler onClick={toggle} />
-          <WordCounter />
-          <NavbarBrand className="mymuse-navbarBrand">MyMuse</NavbarBrand>
-          <Collapse isOpen={dropdownOpen} navbar>
-            <Nav className="mymuse-nav">
-              <NavItem>
-                <NavLink onClick={darkModeToggle}>Light Mode</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink
-                  href="https://forms.gle/vdRznmvEESQTuhbh9"
-                  target="_blank"
-                >
-                  Report a Bug
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink
-                  href="https://forms.gle/98KUnpyP8gvxkZ6m8"
-                  target="_blank"
-                >
-                  Suggest a Feature
-                </NavLink>
-              </NavItem>
-            </Nav>
-          </Collapse>
-        </Navbar>
-      ) : (
-        <Navbar className="mymuse-navbar-light" light>
-          <NavbarToggler onClick={toggle} />
-          <WordCounter />
-          <NavbarBrand className="mymuse-navbarBrand">MyMuse</NavbarBrand>
-          <Collapse isOpen={dropdownOpen} navbar>
-            <Nav className="mymuse-nav">
-              <NavItem>
-                <NavLink onClick={darkModeToggle}>Dark Mode</NavLink>
-              </NavItem>
-            </Nav>
-          </Collapse>
-        </Navbar>
-      )}
+      <Navbar
+        className={darkMode ? "mymuse-navbar-dark" : "mymuse-navbar-light"}
+        light={!darkMode}
+        dark={darkMode}
+      >
+        <NavbarToggler onClick={toggle} />
+        <WordCounter />
+        <NavbarBrand className="mymuse-navbarBrand">MyMuse</NavbarBrand>
+        <Collapse isOpen={dropdownOpen} navbar>
+          <Nav className="mymuse-nav">
+            <NavItem>
+              <NavLink onClick={darkModeToggle}>
+                {darkMode ? "Light Mode" : "Dark Mode"}
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
+                href="https://forms.gle/vdRznmvEESQTuhbh9"
+                target="_blank"
+              >
+                Report a Bug
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
+                href="https://forms.gle/98KUnpyP8gvxkZ6m8"
+                target="_blank"
+              >
+                Suggest a Feature
+              </NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
+      </Navbar>
+
       <HeaderModal />
       <MilestonesContainer />
     </div>

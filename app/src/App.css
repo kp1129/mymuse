@@ -54,6 +54,7 @@ form input {
   right: 0;
   margin: 0 auto;
   background-color: #3a456b;
+
 }
 
 .header-light {
@@ -68,7 +69,7 @@ form input {
 }
 
 .mymuse-navbar-dark {
-  background-color: #2a365f;
+  background-color: #161f27;
 }
 
 .mymuse-navbar-light {
