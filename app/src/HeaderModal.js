@@ -48,7 +48,8 @@ function HeaderModal() {
   const startWritingChallenge = (e) => {
     e.preventDefault();
     calculateMilestones();
-    dismiss();
+    dismiss();    
+    document.querySelector("div[contentEditable]").focus();
   };
   return (
     <div className="header-modal">
@@ -67,9 +68,11 @@ function HeaderModal() {
           <br />
           <br />
           For example, write 1667 words in one session, with a milestone after
-          every 250 words.
+          every 250 words. Each time you write the next 250 words, a milestone will disapear.
           <br />
-          <br /> Don't stop until you've cleared all the milestones!
+          <br />NOTE that the app will only display the last 10 milestones (as neon lights), although it keeps track of all of them behind the scenes. 
+          <br />
+          <br /> Don't stop until you've cleared the last milestone!
           <br />
           <br />
           <Form id="start-challenge" onSubmit={startWritingChallenge}>
