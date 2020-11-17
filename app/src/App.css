@@ -87,7 +87,7 @@ form input {
   width: 65%;
   max-width: 128rem;
   padding: 12rem 10rem 5rem;
-  font-size: 1.5rem;
+  font-size: 2rem;
   line-height: 175%;
   margin: 0 auto;
   /* removes the black border on focus */
@@ -102,7 +102,7 @@ form input {
   width: 65%;
   max-width: 128rem;
   padding: 12rem 10rem 5rem;
-  font-size: 1.5rem;
+  font-size: 2rem;
   line-height: 175%;
   margin: 0 auto;
   /* removes the black border on focus */
