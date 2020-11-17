@@ -6,16 +6,21 @@ function WordCounter() {
 
     useEffect(() => {
         if (wordsWritten >= nextMilestone) {
-            // remove next milestone
-            const newMilestonesRemaining = [...milestonesRemainingRef.current];
-            newMilestonesRemaining.shift();
-            milestonesRemainingRef.current = newMilestonesRemaining;
-            setMilestonesRemaining(newMilestonesRemaining);
-
-            // calculate next milestone
             // alreadyWrittenFactor exists to allow correct calculation in case
             // the user pastes the words in instead of writing them
             const alreadyWrittenFactor = Math.floor(wordsWritten / challengeMilestone);
+
+            // remove next milestone
+            const newMilestonesRemaining = [...milestonesRemainingRef.current];
+            let counter = 0;
+            while (counter < alreadyWrittenFactor){
+                newMilestonesRemaining.shift();
+                counter += 1;
+            }           
+            milestonesRemainingRef.current = newMilestonesRemaining;
+            setMilestonesRemaining(newMilestonesRemaining);
+
+            // calculate next milestone            
             if (newMilestonesRemaining.length === 1) {                
                 setNextMilestone((alreadyWrittenFactor * challengeMilestone )+ newMilestonesRemaining[0]);
             } else {
