@@ -1,16 +1,15 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Header from "./Header";
 import Editor from "./Editor";
 import { StateContext } from "./contexts/StateContext";
+import trackingId from './GAtracking';
 
 
 import ReactGA from 'react-ga';
 
+ReactGA.initialize(trackingId);
+
 function App() {
-
-  ReactGA.initialize("G-X7916RNEBH");
-  ReactGA.pageview(window.location.pathname + window.location.search);
-
   const [darkMode, setDarkMode] = useState(false);
   const [modal, setModal] = useState(true);
   const [challengeGoal, setChallengeGoal] = useState(1667);
@@ -23,6 +22,12 @@ function App() {
 
   const milestonesRemainingRef = useRef(milestonesRemaining);
   milestonesRemainingRef.current = milestonesRemaining;
+
+  useEffect(() => {
+    // placing the google analytics inside of useEffect since
+    // I'm planning to add routes in app in the near future
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  })
 
   return (
     <StateContext.Provider
