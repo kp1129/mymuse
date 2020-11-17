@@ -3,7 +3,14 @@ import Header from "./Header";
 import Editor from "./Editor";
 import { StateContext } from "./contexts/StateContext";
 
+
+import ReactGA from 'react-ga';
+
 function App() {
+
+  ReactGA.initialize("G-X7916RNEBH");
+  ReactGA.pageview(window.location.pathname + window.location.search);
+
   const [darkMode, setDarkMode] = useState(false);
   const [modal, setModal] = useState(true);
   const [challengeGoal, setChallengeGoal] = useState(1667);
