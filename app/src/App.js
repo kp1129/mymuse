@@ -7,7 +7,7 @@ import trackingId from './GAtracking';
 
 import ReactGA from 'react-ga';
 
-ReactGA.initialize(trackingId);
+ReactGA.initialize(trackingId, { standardImplementation: true });
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
