@@ -13,6 +13,8 @@ import { StateContext } from "./contexts/StateContext";
 
 function HeaderModal() {
   const {
+    wordsPerLight,
+    setWordsPerLight,
     challengeGoal,
     challengeMilestone,
     modal,
@@ -25,29 +27,31 @@ function HeaderModal() {
 
   const dismiss = () => setModal(false);
 
-  const updateChallengeGoal = (e) => setChallengeGoal(parseInt(e.target.value));
+  const updateWordsPerLight = (e) => setWordsPerLight(parseInt(e.target.value));
 
-  const updateChallengeMilestone = (e) =>
-    setChallengeMilestone(parseInt(e.target.value));
+  // const updateChallengeGoal = (e) => setChallengeGoal(parseInt(e.target.value));
 
-  const calculateMilestones = () => {
-    const mainMilestones = Math.floor(challengeGoal / challengeMilestone);
-    const finalMilestone = challengeGoal % challengeMilestone;
+  // const updateChallengeMilestone = (e) =>
+  //   setChallengeMilestone(parseInt(e.target.value));
 
-    const milestonesToClear = [];
-    for (let i = 0; i < mainMilestones; i++) {
-      milestonesToClear.push(challengeMilestone);
-    }
-    if (finalMilestone > 0) {
-      milestonesToClear.push(finalMilestone);
-    }
-    setMilestonesRemaining(milestonesToClear);
-    setNextMilestone(challengeMilestone);
-  };
+  // const calculateMilestones = () => {
+  //   const mainMilestones = Math.floor(challengeGoal / challengeMilestone);
+  //   const finalMilestone = challengeGoal % challengeMilestone;
+
+  //   const milestonesToClear = [];
+  //   for (let i = 0; i < mainMilestones; i++) {
+  //     milestonesToClear.push(challengeMilestone);
+  //   }
+  //   if (finalMilestone > 0) {
+  //     milestonesToClear.push(finalMilestone);
+  //   }
+  //   setMilestonesRemaining(milestonesToClear);
+  //   setNextMilestone(challengeMilestone);
+  // };
 
   const startWritingChallenge = (e) => {
     e.preventDefault();
-    calculateMilestones();
+    
     dismiss();    
     document.querySelector("div[contentEditable]").focus();
   };
@@ -59,35 +63,19 @@ function HeaderModal() {
         modalTransition={{ timeout: 300 }}
         backdropTransition={{ timeout: 300 }}
       >
-        <ModalHeader>
-          <h5>Welcome, Writer! Your Muse awaits!</h5>
+        <ModalHeader> 
+          <h5>Welcome, Writer! </h5>
         </ModalHeader>
         <ModalBody>
-          How it works: set your wordcount goal, set your milestones (every x
-          number of words), and start writing.
-          <br />
-          <br />
-          For example, write 1667 words in one session, with a milestone after
-          every 250 words. Each time you write the next 250 words, a milestone will disapear.
-          <br />
-          <br />NOTE that the app will only display the last 10 milestones (as neon lights), although it keeps track of all of them behind the scenes. 
-          <br />
-          <br /> Don't stop until you've cleared the last milestone!
-          <br />
-          <br />
+          How it works: <br/>
+          Decide how many words it will take to power one light, and then write until you turn on all 10 lights! 
           <Form id="start-challenge" onSubmit={startWritingChallenge}>
-            <Label>Wordcount goal: </Label>
+            <Label>Number of words to power one light:</Label>
             <Input
               type="number"
-              value={challengeGoal}
-              onChange={updateChallengeGoal}
-            />
-            <Label>Milestones: </Label>
-            <Input
-              type="number"
-              value={challengeMilestone}
-              onChange={updateChallengeMilestone}
-            />
+              value={wordsPerLight}
+              onChange={updateWordsPerLight}
+            />            
           </Form>
         </ModalBody>
         <ModalFooter>

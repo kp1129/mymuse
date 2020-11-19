@@ -10,7 +10,7 @@ import {
 } from "reactstrap";
 import { StateContext } from "./contexts/StateContext";
 import HeaderModal from "./HeaderModal";
-import MilestonesContainer from "./MilestonesContainer";
+import LightsContainer from "./LightsContainer";
 import WordCounter from "./WordCounter";
 
 function Header() {
@@ -57,7 +57,7 @@ function Header() {
       </Navbar>
 
       <HeaderModal />
-      <MilestonesContainer />
+      <LightsContainer />
     </div>
   );
 }
