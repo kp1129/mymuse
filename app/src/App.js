@@ -20,6 +20,10 @@ function App() {
   const [wordsWritten, setWordsWritten] = useState(0);
   const [nextMilestone, setNextMilestone] = useState();
 
+
+  const [wordsPerLight, setWordsPerLight] = useState(50);
+  const [lightsToTurnOn, setLightsToTurnOn] = useState(0);
+
   const milestonesRemainingRef = useRef(milestonesRemaining);
   milestonesRemainingRef.current = milestonesRemaining;
 
@@ -51,6 +55,10 @@ function App() {
         nextMilestone,
         setNextMilestone,
         milestonesRemainingRef,
+        wordsPerLight,
+        setWordsPerLight,
+        lightsToTurnOn,
+        setLightsToTurnOn
       }}
     >
       <div className={darkMode ? "app-dark" : "app-light"}>

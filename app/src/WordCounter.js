@@ -2,9 +2,17 @@ import React, { useContext, useEffect } from 'react';
 import { StateContext } from './contexts/StateContext';
 
 function WordCounter() {
-    const { wordsWritten, challengeMilestone, nextMilestone, setNextMilestone, milestonesRemainingRef, setMilestonesRemaining } = useContext(StateContext);
+    const { wordsPerLight, setLightsToTurnOn, wordsWritten, challengeMilestone, nextMilestone, setNextMilestone, milestonesRemainingRef, setMilestonesRemaining } = useContext(StateContext);
 
     useEffect(() => {
+        let numOfLights = Math.floor(wordsWritten / wordsPerLight)
+        if (numOfLights > 0) {
+            setLightsToTurnOn(numOfLights);
+        }
+
+
+
+
         if (wordsWritten >= nextMilestone) {
             // alreadyWrittenFactor exists to allow correct calculation in case
             // the user pastes the words in instead of writing them
