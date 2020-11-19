@@ -12,47 +12,19 @@ import {
 import { StateContext } from "./contexts/StateContext";
 
 function HeaderModal() {
-  const {
-    wordsPerLight,
-    setWordsPerLight,
-    challengeGoal,
-    challengeMilestone,
-    modal,
-    setModal,
-    setChallengeGoal,
-    setChallengeMilestone,
-    setMilestonesRemaining,
-    setNextMilestone,
-  } = useContext(StateContext);
+  const { wordsPerLight, setWordsPerLight, modal, setModal } = useContext(
+    StateContext
+  );
 
   const dismiss = () => setModal(false);
 
   const updateWordsPerLight = (e) => setWordsPerLight(parseInt(e.target.value));
 
-  // const updateChallengeGoal = (e) => setChallengeGoal(parseInt(e.target.value));
-
-  // const updateChallengeMilestone = (e) =>
-  //   setChallengeMilestone(parseInt(e.target.value));
-
-  // const calculateMilestones = () => {
-  //   const mainMilestones = Math.floor(challengeGoal / challengeMilestone);
-  //   const finalMilestone = challengeGoal % challengeMilestone;
-
-  //   const milestonesToClear = [];
-  //   for (let i = 0; i < mainMilestones; i++) {
-  //     milestonesToClear.push(challengeMilestone);
-  //   }
-  //   if (finalMilestone > 0) {
-  //     milestonesToClear.push(finalMilestone);
-  //   }
-  //   setMilestonesRemaining(milestonesToClear);
-  //   setNextMilestone(challengeMilestone);
-  // };
-
   const startWritingChallenge = (e) => {
     e.preventDefault();
-    
-    dismiss();    
+    // remove the modal from the view
+    dismiss();
+    // focus the cursor inside the word editor
     document.querySelector("div[contentEditable]").focus();
   };
   return (
@@ -63,20 +35,28 @@ function HeaderModal() {
         modalTransition={{ timeout: 300 }}
         backdropTransition={{ timeout: 300 }}
       >
-        <ModalHeader> 
-          <h5>Welcome, Writer! </h5>
+        <ModalHeader>
+          <h6>Welcome, Writer! </h6>
         </ModalHeader>
         <ModalBody>
-          How it works: <br/>
-          Decide how many words it will take to power one light, and then write until you turn on all 10 lights! 
+          There are 10 lights that you need to power on by the pure, unstoppable
+          magic of your written words!
           <Form id="start-challenge" onSubmit={startWritingChallenge}>
-            <Label>Number of words to power one light:</Label>
+            <Label>How many words will it take to power one light?</Label>
             <Input
               type="number"
               value={wordsPerLight}
               onChange={updateWordsPerLight}
-            />            
+            />
           </Form>
+          If you're struggling to get any writing done, it is recommended to
+          choose a low number like 50 or 25, and once you have powered on all
+          ten lights just start a new session.
+          <br />
+          <br />
+          NOTE: as of now, this app has no backend, which means your words are
+          not saved anywhere. You MUST copy your words at the end of each
+          session and save them somewhere else.
         </ModalBody>
         <ModalFooter>
           <Button

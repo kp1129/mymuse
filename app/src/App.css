@@ -34,7 +34,8 @@ form {
 }
 
 form input {
-  max-width: 20rem;
+  max-width: 10rem;
+  text-align: center;
   min-height: 3rem !important;
   font-size: 1.5rem !important;
 }
